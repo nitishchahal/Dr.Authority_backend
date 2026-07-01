@@ -6,9 +6,9 @@ import connectCloudinary from "./config/cloudinary.js"
 import userRouter from "./routes/userRoute.js"
 import doctorRouter from "./routes/doctorRoute.js"
 import adminRouter from "./routes/adminRoute.js"
-
-// app config
+import paymentRoute from "./routes/paymentRoute.js";// app config
 const app = express()
+
 const port = process.env.PORT || 4000
 connectDB()
 connectCloudinary()
@@ -18,6 +18,7 @@ app.use(express.json())
 app.use(cors())
 
 // api endpoints
+app.use("/api/payment", paymentRoute);
 app.use("/api/user", userRouter)
 app.use("/api/admin", adminRouter)
 app.use("/api/doctor", doctorRouter)
