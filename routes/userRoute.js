@@ -1,6 +1,7 @@
 import express from 'express';
 import { loginUser, registerUser, getProfile, updateProfile, bookAppointment, listAppointment,
      cancelAppointment,
+
     //   paymentRazorpay,
     //    verifyRazorpay,
         paymentStripe,
@@ -17,6 +18,7 @@ userRouter.post("/update-profile", upload.single('image'), authUser, updateProfi
 userRouter.post("/book-appointment", authUser, bookAppointment)
 userRouter.get("/appointments", authUser, listAppointment)
 userRouter.post("/cancel-appointment", authUser, cancelAppointment)
+
 // userRouter.post("/payment-razorpay", authUser, paymentRazorpay)
 // userRouter.post("/verifyRazorpay", authUser, verifyRazorpay)
 userRouter.post("/payment-stripe", authUser, paymentStripe)
